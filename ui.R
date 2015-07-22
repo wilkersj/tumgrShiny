@@ -11,7 +11,7 @@ library(tumgr)
 
 
 ui<-(fluidPage(
-  titlePanel("Tumor Growth Rate Analysis"),
+  titlePanel("(beta) Tumor Growth Rate Analysis"),
   sidebarLayout(
     sidebarPanel(
       
@@ -26,12 +26,11 @@ ui<-(fluidPage(
                 )
       ),
       tags$hr(),
-      numericInput('pval','Choose p-value',.10,0,1,.01),
+      #numericInput('pval','Choose p-value',.10,0,1,.01),
+      sliderInput('pval','Set p-value',0,1,.10),
       br(),
-      actionButton("goButton", "Analyze uploaded data"),
-      br(),
-      actionButton("goButton8", "Analyze sample data"),
-      br(),
+      HTML("Press button below to analyze data (package sample data used in absence of uploaded data)."),
+      actionButton("goButton", p(strong("Analyze"))),
       br(),
       br(),
       br(),
@@ -40,8 +39,7 @@ ui<-(fluidPage(
       uiOutput("patientID"),
       br(),
       br(),
-      HTML("Created using the <a href='https://cran.r-project.org/web/packages/tumgr/index.html'>tumgr</a> package and the code can be viewed <a href='https://github.com/wilkersj/tumgrShiny'>here</a>.")
-      #https://github.com/wilkersj/tumgrShiny
+      HTML("The code for this Shiny app can be viewed <a href='https://github.com/wilkersj/tumgrShiny'>here</a>, and was created using the <a href='https://cran.r-project.org/web/packages/tumgr/index.html'>tumgr</a> package.")
       ),
     mainPanel(
       tableOutput('stattab'),
