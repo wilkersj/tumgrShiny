@@ -28,7 +28,9 @@ ui<-(fluidPage(
       tags$hr(),
       numericInput('pval','Choose p-value',.10,0,1,.01),
       br(),
-      actionButton("goButton", "Run Analysis"),
+      actionButton("goButton", "Analyze uploaded data"),
+      br(),
+      actionButton("goButton8", "Analyze sample data"),
       br(),
       br(),
       br(),
@@ -38,9 +40,8 @@ ui<-(fluidPage(
       uiOutput("patientID"),
       br(),
       br(),
-      br(),
-      br(),
-      HTML("Created using the <a href='https://cran.r-project.org/web/packages/tumgr/index.html'>tumgr</a> package.")
+      HTML("Created using the <a href='https://cran.r-project.org/web/packages/tumgr/index.html'>tumgr</a> package and the code can be viewed <a href='https://github.com/wilkersj/tumgrShiny'>here</a>.")
+      #https://github.com/wilkersj/tumgrShiny
       ),
     mainPanel(
       tableOutput('stattab'),
