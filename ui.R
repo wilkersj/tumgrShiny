@@ -30,8 +30,8 @@ ui<-(fluidPage(
       sliderInput('pval','Set p-value',0,1,.10),
       br(),
       HTML("Press button below to analyze data (package sample data used in absence of uploaded data)."),
-      actionButton("goButton", p(strong("Analyze"))),
       br(),
+      actionButton("goButton", p(strong("Analyze"))),
       br(),
       br(),
       p("After analysis, the drop down box below will populate with the input patient IDs.  
